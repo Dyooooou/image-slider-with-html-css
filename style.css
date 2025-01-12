@@ -10,14 +10,14 @@
     position: absolute;
     width: 200px;
     height: 250px;
-    top: 10%;
+    top: 25%;
     left: calc(50% - 100px);
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
+    animation: autoRun 10s linear infinite;
 }
 
-@keyframe autoRun{
+@keyframes autoRun{
     from{
         transform: perspective(1000px) rotateY(0deg);
     }to{
@@ -29,7 +29,7 @@
     position: absolute;
     inset: 0 0 0 0;
     transform: 
-        rotateY(calc( (var(--position) - 1) * (var(--quantity)) * 1deg))
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
         translateZ(550px);
 }
 
@@ -37,4 +37,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateZ(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
